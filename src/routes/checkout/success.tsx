@@ -17,7 +17,7 @@ export const Route = createFileRoute('/checkout/success')({
   head: () =>
     buildSeoMeta({
       title: 'Pesanan Berhasil Dibuat',
-      description: 'Konfirmasi pesanan, ringkasan item, dan estimasi pengiriman Anda di KAIZU88.',
+      description: 'Konfirmasi pesanan, ringkasan item, dan estimasi pengiriman Anda di KAIZU88 STORE.',
       path: '/checkout/success',
       noindex: true,
     }),

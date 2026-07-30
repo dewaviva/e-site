@@ -61,18 +61,18 @@ export const Route = createFileRoute('/')({
           mainEntity: [
             {
               '@type': 'Question',
-              name: 'Apa saja yang dijual di KAIZU88?',
+              name: 'Apa saja yang dijual di KAIZU88 STORE?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'KAIZU88 menjual perlengkapan teknologi, audio, smartwatch, aksesori desk, tas travel, dan smart home.',
+                text: 'KAIZU88 STORE menjual perlengkapan teknologi, audio, smartwatch, aksesori desk, tas travel, dan smart home.',
               },
             },
             {
               '@type': 'Question',
-              name: 'Apakah produk di KAIZU88 bergaransi?',
+              name: 'Apakah produk di KAIZU88 STORE bergaransi?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Ya, produk di KAIZU88 dilengkapi garansi resmi sesuai kategori produk yang dijual.',
+                text: 'Ya, produk di KAIZU88 STORE dilengkapi garansi resmi sesuai kategori produk yang dijual.',
               },
             },
             {
@@ -185,14 +185,14 @@ function ProductsIndex() {
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Perlengkapan Teknologi &amp;{' '}
+              Game Terbaru &amp;{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500">
-                Gaya Hidup Modern
+                Aksesoris Terbaik
               </span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-              Kurasi peralatan presisi tinggi dengan estetika masa kini. Dirancang khusus untuk menunjang produktivitas, kualitas audio audiophile, dan aktivitas komuter sehari-hari.
+              Akurasi presisi tinggi dengan estetika masa kini. Dirancang khusus untuk kenyamanan bermain, kualitas audio jernih, gambar tajam, fps tinggi.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -204,15 +204,6 @@ function ProductsIndex() {
                 <Zap className="w-4 h-4 fill-slate-950" />
               </a>
 
-              <button
-                onClick={() => {
-                  setSelectedCategory('Audio & Sound')
-                  document.getElementById('katalog')?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 font-semibold text-sm transition-all hover:border-slate-700"
-              >
-                Bestseller Audio
-              </button>
             </div>
           </div>
 
@@ -221,7 +212,7 @@ function ProductsIndex() {
             <div className="flex items-center gap-3">
               <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0" />
               <span className="text-xs font-medium text-slate-300">
-                Garansi Resmi Kinetix 2 Tahun
+                Garansi Resmi 2 Tahun
               </span>
             </div>
             <div className="flex items-center gap-3">
@@ -247,10 +238,10 @@ function ProductsIndex() {
           <div>
             <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider font-mono">
               <Layers className="w-4 h-4" />
-              <span>Katalog Terkurasi</span>
+              <span>Katalog Terbaru</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              Temukan Peralatan Impian Anda
+              Temukan Setup Impian Anda
             </h2>
           </div>
 
@@ -414,7 +405,7 @@ function ProductsIndex() {
               <span>Standar Kualitas</span>
             </div>
             <h2 className="text-3xl font-extrabold text-white">
-              Mengapa Memilih Peralatan KINETIX?
+              Mengapa Memilih Produk KAIZU88 STORE?
             </h2>
             <p className="text-xs text-slate-400">
               Komitmen kami terhadap material premium, pengerjaan presisi, dan pengalaman pengguna tanpa kompromi.
@@ -428,7 +419,7 @@ function ProductsIndex() {
               </div>
               <h3 className="text-lg font-bold text-white">Desain Ergonomis &amp; Presisi</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Setiap produk dirancang melalui riset ergonomi mendalam untuk memastikan kenyamanan penggunaan harian dalam jangka panjang.
+                Setiap produk dirancang melalui riset ergonomi mendalam untuk memastikan kenyamanan bermain dalam jangka panjang.
               </p>
             </div>
 
@@ -448,7 +439,7 @@ function ProductsIndex() {
               </div>
               <h3 className="text-lg font-bold text-white">Dukungan Garansi 1-to-1 Replace</h3>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Jaminan ganti unit baru langsung jika terjadi kerusakan manufaktur selama masa garansi berlaku.
+                Jaminan ganti unit baru langsung jika terjadi kerusakan manufaktur selama masa garansi.
               </p>
             </div>
           </div>

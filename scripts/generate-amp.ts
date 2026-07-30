@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear()
 const ampHero = {
   logo: '/logo.png',
   badge: 'SITUS TERBESAR NO.1 DI INDONESIA',
-  title: `KAIZU88: Situs Online Game Terpercaya ${currentYear}`,
+  title: `KAIZU88 STORE: Situs Online Game Terpercaya ${currentYear}`,
   subtitle: 'Slot Gacor | Slot Online | Situs Slot | Bandar Slot',
   primaryAction: {
     label: 'DAFTAR KAIZU88',
@@ -41,7 +41,7 @@ const ampHero = {
     href: 'https://globalcuturl.com/kz88-live-chat',
   },
   image: '/amp.webp',
-  imageAlt: 'PROMO KAIZU88',
+  imageAlt: 'PROMO KAIZU88 STORE',
 }
 
 function ensureDir(dir: string) {
@@ -180,7 +180,7 @@ function buildHomeAmp() {
   const body = `
     ${promoHero()}
     <div class="section">
-      <div class="section-hd">KAIZU88</div>
+      <div class="section-hd">KAIZU88 STORE</div>
       <div class="section-bd">
         <div class="spacer"></div>
         <div class="grid">${sections}</div>

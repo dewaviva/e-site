@@ -536,7 +536,7 @@ function ProductDetailPage() {
                     Informasi Garansi
                   </h3>
                   <p>
-                    Semua produk yang dijual di KAIZU88 dilindungi oleh garansi resmi.
+                    Semua produk yang dijual di KAIZU88 STORE dilindungi oleh garansi resmi.
                     Produk ini memiliki garansi penggantian unit baru 1-to-1 selama 2 tahun jika ditemukan cacat produksi.
                     Kerusakan akibat kesalahan pengguna (jatuh, terkena air, dll.) tidak termasuk dalam cakupan garansi.
                   </p>

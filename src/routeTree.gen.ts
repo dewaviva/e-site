@@ -9,6 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TentangKamiRouteImport } from './routes/tentang-kami'
+import { Route as SyaratDanKetentuanRouteImport } from './routes/syarat-dan-ketentuan'
+import { Route as LacakPesananRouteImport } from './routes/lacak-pesanan'
+import { Route as KetentuanGaransiRouteImport } from './routes/ketentuan-garansi'
+import { Route as KebijakanPrivasiRouteImport } from './routes/kebijakan-privasi'
+import { Route as HubungiKamiRouteImport } from './routes/hubungi-kami'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsProductidRouteImport } from './routes/products/$productid'
 import { Route as ProductsProductSlugRouteImport } from './routes/products/$productSlug'
@@ -16,6 +22,36 @@ import { Route as CollectionsCategoryRouteImport } from './routes/collections/$c
 import { Route as CheckoutSuccessRouteImport } from './routes/checkout/success'
 import { Route as CheckoutCancelRouteImport } from './routes/checkout/cancel'
 
+const TentangKamiRoute = TentangKamiRouteImport.update({
+  id: '/tentang-kami',
+  path: '/tentang-kami',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SyaratDanKetentuanRoute = SyaratDanKetentuanRouteImport.update({
+  id: '/syarat-dan-ketentuan',
+  path: '/syarat-dan-ketentuan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LacakPesananRoute = LacakPesananRouteImport.update({
+  id: '/lacak-pesanan',
+  path: '/lacak-pesanan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KetentuanGaransiRoute = KetentuanGaransiRouteImport.update({
+  id: '/ketentuan-garansi',
+  path: '/ketentuan-garansi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KebijakanPrivasiRoute = KebijakanPrivasiRouteImport.update({
+  id: '/kebijakan-privasi',
+  path: '/kebijakan-privasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HubungiKamiRoute = HubungiKamiRouteImport.update({
+  id: '/hubungi-kami',
+  path: '/hubungi-kami',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +85,12 @@ const CheckoutCancelRoute = CheckoutCancelRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hubungi-kami': typeof HubungiKamiRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/ketentuan-garansi': typeof KetentuanGaransiRoute
+  '/lacak-pesanan': typeof LacakPesananRoute
+  '/syarat-dan-ketentuan': typeof SyaratDanKetentuanRoute
+  '/tentang-kami': typeof TentangKamiRoute
   '/checkout/cancel': typeof CheckoutCancelRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/collections/$category': typeof CollectionsCategoryRoute
@@ -57,6 +99,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hubungi-kami': typeof HubungiKamiRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/ketentuan-garansi': typeof KetentuanGaransiRoute
+  '/lacak-pesanan': typeof LacakPesananRoute
+  '/syarat-dan-ketentuan': typeof SyaratDanKetentuanRoute
+  '/tentang-kami': typeof TentangKamiRoute
   '/checkout/cancel': typeof CheckoutCancelRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/collections/$category': typeof CollectionsCategoryRoute
@@ -66,6 +114,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hubungi-kami': typeof HubungiKamiRoute
+  '/kebijakan-privasi': typeof KebijakanPrivasiRoute
+  '/ketentuan-garansi': typeof KetentuanGaransiRoute
+  '/lacak-pesanan': typeof LacakPesananRoute
+  '/syarat-dan-ketentuan': typeof SyaratDanKetentuanRoute
+  '/tentang-kami': typeof TentangKamiRoute
   '/checkout/cancel': typeof CheckoutCancelRoute
   '/checkout/success': typeof CheckoutSuccessRoute
   '/collections/$category': typeof CollectionsCategoryRoute
@@ -76,6 +130,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/hubungi-kami'
+    | '/kebijakan-privasi'
+    | '/ketentuan-garansi'
+    | '/lacak-pesanan'
+    | '/syarat-dan-ketentuan'
+    | '/tentang-kami'
     | '/checkout/cancel'
     | '/checkout/success'
     | '/collections/$category'
@@ -84,6 +144,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/hubungi-kami'
+    | '/kebijakan-privasi'
+    | '/ketentuan-garansi'
+    | '/lacak-pesanan'
+    | '/syarat-dan-ketentuan'
+    | '/tentang-kami'
     | '/checkout/cancel'
     | '/checkout/success'
     | '/collections/$category'
@@ -92,6 +158,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/hubungi-kami'
+    | '/kebijakan-privasi'
+    | '/ketentuan-garansi'
+    | '/lacak-pesanan'
+    | '/syarat-dan-ketentuan'
+    | '/tentang-kami'
     | '/checkout/cancel'
     | '/checkout/success'
     | '/collections/$category'
@@ -101,6 +173,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HubungiKamiRoute: typeof HubungiKamiRoute
+  KebijakanPrivasiRoute: typeof KebijakanPrivasiRoute
+  KetentuanGaransiRoute: typeof KetentuanGaransiRoute
+  LacakPesananRoute: typeof LacakPesananRoute
+  SyaratDanKetentuanRoute: typeof SyaratDanKetentuanRoute
+  TentangKamiRoute: typeof TentangKamiRoute
   CheckoutCancelRoute: typeof CheckoutCancelRoute
   CheckoutSuccessRoute: typeof CheckoutSuccessRoute
   CollectionsCategoryRoute: typeof CollectionsCategoryRoute
@@ -110,6 +188,48 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/tentang-kami': {
+      id: '/tentang-kami'
+      path: '/tentang-kami'
+      fullPath: '/tentang-kami'
+      preLoaderRoute: typeof TentangKamiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/syarat-dan-ketentuan': {
+      id: '/syarat-dan-ketentuan'
+      path: '/syarat-dan-ketentuan'
+      fullPath: '/syarat-dan-ketentuan'
+      preLoaderRoute: typeof SyaratDanKetentuanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lacak-pesanan': {
+      id: '/lacak-pesanan'
+      path: '/lacak-pesanan'
+      fullPath: '/lacak-pesanan'
+      preLoaderRoute: typeof LacakPesananRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ketentuan-garansi': {
+      id: '/ketentuan-garansi'
+      path: '/ketentuan-garansi'
+      fullPath: '/ketentuan-garansi'
+      preLoaderRoute: typeof KetentuanGaransiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kebijakan-privasi': {
+      id: '/kebijakan-privasi'
+      path: '/kebijakan-privasi'
+      fullPath: '/kebijakan-privasi'
+      preLoaderRoute: typeof KebijakanPrivasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hubungi-kami': {
+      id: '/hubungi-kami'
+      path: '/hubungi-kami'
+      fullPath: '/hubungi-kami'
+      preLoaderRoute: typeof HubungiKamiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -157,6 +277,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HubungiKamiRoute: HubungiKamiRoute,
+  KebijakanPrivasiRoute: KebijakanPrivasiRoute,
+  KetentuanGaransiRoute: KetentuanGaransiRoute,
+  LacakPesananRoute: LacakPesananRoute,
+  SyaratDanKetentuanRoute: SyaratDanKetentuanRoute,
+  TentangKamiRoute: TentangKamiRoute,
   CheckoutCancelRoute: CheckoutCancelRoute,
   CheckoutSuccessRoute: CheckoutSuccessRoute,
   CollectionsCategoryRoute: CollectionsCategoryRoute,

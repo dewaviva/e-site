@@ -1,31 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from '@tanstack/react-router'
-import { useCartStore } from '@/store/cartStore'
+import { SITE_NAME } from '@/seo/siteSeo'
+import { CATEGORIES } from '@/data/products'
+import { slugify } from '@/utils/slugify'
 import {
   Zap,
   ShieldCheck,
   Truck,
   RotateCcw,
   Headphones,
-  Send,
-  CreditCard,
   Lock,
+  CreditCard,
 } from 'lucide-react'
 
 export const Footer: React.FC = () => {
-  const [email, setEmail] = useState('')
-  const { addToast } = useCartStore()
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-    addToast(
-      'Berhasil Berlangganan!',
-      'Terima kasih telah bergabung. Kode promo eksklusif telah dikirimkan ke email Anda.'
-    )
-    setEmail('')
-  }
-
   return (
     <footer className="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs">
       {/* Value Proposition Highlights Bar */}
@@ -81,19 +69,24 @@ export const Footer: React.FC = () => {
             <div className="h-10 w-auto overflow-hidden rounded-none border-0 bg-transparent shadow-none">
               <img
                 src="/logo.png"
-                alt="Logo KINETIX"
+                alt="Logo KAIZU88"
                 className="h-10 w-auto object-contain block"
               />
             </div>
           </Link>
 
           <p className="text-slate-400 leading-relaxed max-w-sm">
-            KAIZU88 adalah destinasi belanja perlengkapan teknologi, audio audiophile, aksesori meja kerja, dan peralatan gaya hidup modern dengan kurasi desain tertinggi.
+            {SITE_NAME} adalah surga bagi para gamer di Indonesia. Kami adalah platform online terkemuka yang menyediakan berbagai macam game terbaru, konsol, aksesoris gaming, dan merchandise eksklusif.
           </p>
 
           <div className="flex items-center gap-2 text-slate-300 font-semibold pt-2">
             <Lock className="w-4 h-4 text-emerald-400" />
             <span>Sistem Pembayaran Terenkripsi 256-Bit SSL</span>
+          </div>
+
+          <div className="flex items-center gap-2 text-slate-300 font-semibold pt-2">
+            <CreditCard className="w-4 h-4 text-emerald-400" />
+            <span>Menerima E-wallet, QRIS, Transfer Bank & Paylater</span>
           </div>
         </div>
 
@@ -103,31 +96,17 @@ export const Footer: React.FC = () => {
             Kategori
           </h5>
           <ul className="space-y-2 text-slate-400">
-            <li>
-              <Link to="/" className="hover:text-amber-400 transition-colors">
-                Audio & Sound
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="hover:text-amber-400 transition-colors">
-                Smart Wearables
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="hover:text-amber-400 transition-colors">
-                Aksesori Desk
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="hover:text-amber-400 transition-colors">
-                Tas & Travel
-              </Link>
-            </li>
-            <li>
-              <Link to="/" className="hover:text-amber-400 transition-colors">
-                Smart Home
-              </Link>
-            </li>
+            {CATEGORIES.filter(cat => cat !== 'Semua').map(category => (
+              <li key={category}>
+                <Link
+                  to="/collections/$category"
+                  params={{ category: slugify(category) }}
+                  className="hover:text-amber-400 transition-colors"
+                >
+                  {category}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -138,72 +117,60 @@ export const Footer: React.FC = () => {
           </h5>
           <ul className="space-y-2 text-slate-400">
             <li>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link to="/lacak-pesanan" className="hover:text-amber-400 transition-colors">
                 Lacak Pesanan
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link to="/ketentuan-garansi" className="hover:text-amber-400 transition-colors">
                 Ketentuan Garansi
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link to="/kebijakan-privasi" className="hover:text-amber-400 transition-colors">
                 Kebijakan Privasi
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link to="/syarat-dan-ketentuan" className="hover:text-amber-400 transition-colors">
                 Syarat & Ketentuan
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              <Link to="/hubungi-kami" className="hover:text-amber-400 transition-colors">
                 Hubungi Kami
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link to="/tentang-kami" className="hover:text-amber-400 transition-colors">
+                Tentang Kami
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Col 4: Newsletter Box */}
+        {/* Col 4: Lokasi Toko */}
         <div className="md:col-span-4 space-y-3">
           <h5 className="text-sm font-bold text-white uppercase tracking-wider font-mono">
-            Buletin Eksklusif
+            Lokasi Toko
           </h5>
-          <p className="text-slate-400">
-            Dapatkan voucher diskon Rp 100.000 untuk transaksi pertama dan info perilisan produk terbaru.
-          </p>
-
-          <form onSubmit={handleSubscribe} className="space-y-2">
-            <div className="relative">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Masukkan alamat email Anda..."
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-4 pr-10 py-2.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500"
-              />
-              <button
-                type="submit"
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg transition-colors"
-              >
-                <Send className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </form>
-
-          <div className="flex items-center gap-2 pt-2 text-slate-500">
-            <CreditCard className="w-4 h-4 text-slate-400" />
-            <span>Menerima E-wallet, QRIS, Transfer Bank & Paylater</span>
-          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.860360398955!2d110.8556973153492!3d-6.76597069510841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70dbdcfd92f03f%3A0x254c621285fb256e!2sKAIZU88!5e0!3m2!1sen!2sid!4v1672563456789!5m2!1sen!2sid"
+            width="100%"
+            height="150"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg"
+          ></iframe>
         </div>
       </div>
 
       {/* Bottom Copyright Bar */}
       <div className="border-t border-slate-800/80 bg-slate-950 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-          <p>© 2026 KAIZU88 Equipment Studio. Hak Cipta Dilindungi Undang-Undang.</p>
+          <p>© 2026 KAIZU88 STORE. Hak Cipta Dilindungi Undang-Undang.</p>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-slate-300 transition-colors">
               Instagram

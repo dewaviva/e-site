@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
+import { createFileRoute, Link, notFound } from '@tanstack/react-router'
 import products, { CATEGORIES } from '../../data/products'
 import { ProductCard } from '../../components/ProductCard'
 import { buildSeoMeta } from '../../seo/buildSeoMeta'
@@ -16,14 +16,24 @@ const findCategoryBySlug = (slug: string) => {
 export const Route = createFileRoute('/collections/$category')({
   loader: ({ params }) => {
     const categorySlug = params.category
+
+    if (categorySlug === 'semua') {
+      return {
+        filteredProducts: products,
+        category: 'Semua Produk',
+        categorySlug,
+      }
+    }
+
     const categoryName = findCategoryBySlug(categorySlug)
 
     if (!categoryName) {
-      throw new Error('Category not found') // Or handle as a 404
+      // Ini akan secara otomatis merender komponen Error default dari root
+      throw notFound()
     }
 
     const filteredProducts = products.filter((p) => p.category === categoryName)
-    
+
     return { filteredProducts, category: categoryName, categorySlug }
   },
   head: ({ params, loaderData }) => {
