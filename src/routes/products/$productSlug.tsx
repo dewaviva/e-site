@@ -53,8 +53,10 @@ export const Route = createFileRoute('/products/$productSlug')({
           '@context': 'https://schema.org',
           '@type': 'Product',
           name: product.name,
-          description: product.shortDescription,
-          image: product.image,
+          description: product.description, // Use full description for richer context
+          image: product.image.startsWith('http')
+            ? product.image
+            : `${SITE_URL}${product.image}`, // Ensure absolute URL
           sku: product.id.toString(),
           brand: {
             '@type': 'Brand',

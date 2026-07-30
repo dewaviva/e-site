@@ -32,7 +32,7 @@ export interface HomePromoConfig {
 }
 
 const homePromo: HomePromoConfig = {
-  image: '/pop-up.png',
+  image: '/pop-up.webp',
   imageAlt: 'Promosi utama KAIZU88',
   primaryAction: {
     label: 'DAFTAR KAIZU88',

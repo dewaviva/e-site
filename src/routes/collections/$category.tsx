@@ -26,9 +26,9 @@ export const Route = createFileRoute('/collections/$category')({
     
     return { filteredProducts, category: categoryName, categorySlug }
   },
-  head: ({ params }) => {
-    const categorySlug = params.category
-    const categoryName = findCategoryBySlug(categorySlug) || 'Kategori'
+  head: ({ params, loaderData }) => {
+    const { filteredProducts, category, categorySlug } = loaderData
+    const categoryName = category || 'Kategori'
     const path = `/collections/${categorySlug}`
 
     const now = new Date()
@@ -48,6 +48,33 @@ export const Route = createFileRoute('/collections/$category')({
       'Desember',
     ]
     const month = monthNames[now.getMonth()]
+
+    const productListSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: `Produk Kategori ${categoryName}`,
+      description: `Daftar produk dalam kategori ${categoryName}`,
+      itemListElement: filteredProducts.map((product, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'Product',
+          name: product.name,
+          description: product.description,
+          image: product.image.startsWith('http')
+            ? product.image
+            : `${SITE_URL}${product.image}`,
+          sku: product.id,
+          offers: {
+            '@type': 'Offer',
+            url: `${SITE_URL}/products/${slugify(product.name)}`,
+            priceCurrency: 'IDR',
+            price: product.price,
+            availability: 'https://schema.org/InStock',
+          },
+        },
+      })),
+    }
 
     return buildSeoMeta({
       title: `${categoryName} Harga Termurah | Model Terbaru ${month} ${year}`,
@@ -73,6 +100,7 @@ export const Route = createFileRoute('/collections/$category')({
             },
           ],
         },
+        productListSchema,
       ],
     })
   },

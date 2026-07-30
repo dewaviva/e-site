@@ -20,16 +20,16 @@ export function HomePromoModal({ open, onClose }: HomePromoModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="home-promo-title"
-        className="relative w-full max-w-[420px] overflow-hidden rounded-[22px] border border-amber-500/25 bg-[#120d04] text-[#f6d37f] shadow-2xl shadow-black/70 sm:max-w-[520px]"
+        className="relative w-full max-w-[420px] rounded-[22px] border border-amber-500/25 bg-[#120d04] text-[#f6d37f] shadow-2xl shadow-black/70 sm:max-w-[520px]"
         onClick={(event) => event.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full border border-amber-500/30 bg-black/40 text-[#f6d37f] transition hover:bg-black/60 hover:text-white"
+          className="absolute right-0 -top-4 z-10 inline-flex h-8 w-8 translate-x-full items-center justify-center rounded-full border-2 border-[#120d04] bg-white text-slate-800 transition hover:bg-slate-200"
           aria-label="Tutup pop up"
         >
-          <X className="h-4 w-4" />
+          <X className="h-5 w-5" />
         </button>
 
         <style>{`
@@ -49,7 +49,7 @@ export function HomePromoModal({ open, onClose }: HomePromoModalProps) {
               <img
                 src={homePromo.image}
                 alt={homePromo.imageAlt}
-                className="aspect-[4/3] w-full object-cover"
+                className="w-full"
               />
             </div>
 

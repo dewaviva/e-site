@@ -40,12 +40,14 @@ export const Route = createFileRoute('/')({
 
     const homePageTitle = `${SITE_NAME} ⚡️ Game & Aksesori Murah Promo ${month} ${year} Diskon ${currentDiscount}`
 
+    const homePageDescription = `Serbu Diskon spesial ${currentDiscount} dan Gratis Ongkir tanpa syarat minimum order. Checkout sekarang, waktu terbatas!`
+
     const title = isFiltered
       ? `Kategori ${cat} - ${SITE_HOME_TITLE}`
       : homePageTitle
     const description = isFiltered
       ? `Pilihan Produk ${cat} Terlengkap dan Terbaik. Cek Promo, Ada Diskon Terbaru dan Bisa COD.`
-      : SITE_HOME_DESCRIPTION
+      : homePageDescription
 
     return buildSeoMeta({
       title,

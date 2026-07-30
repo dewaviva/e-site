@@ -11,11 +11,36 @@ export const SITE_SOCIAL_PROFILES = [
 
 export const SITE_ORGANIZATION_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'OnlineStore'],
   name: SITE_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   sameAs: SITE_SOCIAL_PROFILES,
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Promo dan Penawaran KAIZU88',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        name: 'Promo Spesial KAIZU88',
+        description:
+          'Serbu Diskon spesial hingga 50% dan Gratis Ongkir tanpa syarat minimum order.',
+        priceCurrency: 'IDR',
+        shippingDetails: {
+          '@type': 'OfferShippingDetails',
+          shippingRate: {
+            '@type': 'MonetaryAmount',
+            value: 0,
+            currency: 'IDR',
+          },
+          shippingDestination: {
+            '@type': 'DefinedRegion',
+            addressCountry: 'ID',
+          },
+        },
+      },
+    ],
+  },
 }
 
 export const SITE_WEBSITE_SCHEMA = {
